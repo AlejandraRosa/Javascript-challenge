@@ -15,15 +15,16 @@ tableData.forEach(function(ufoReport) {
       cell.text(value);
     });
   });
-// using activty 3.7 as example for how to select/filter 
+// using activty 3.9 as example for how to select/filter 
 var button = d3.select("#filter-btn");
 button.on("click", function() {
     tBody.html("");
+    // Select the input element and get the raw HTML node
     var inputElement = d3.select("#datetime");
     var inputValue = inputElement.property("value");
-    // filter data 
+    // filter data based on date selected
     var filteredData = tableData.filter(sighting => sighting.datetime === inputValue);
-    // show in console
+    // show the filtered data in console
     console.log(filteredData);
     //same as initial function
     filteredData.forEach(function(selections) {
